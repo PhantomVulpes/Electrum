@@ -1,6 +1,6 @@
-﻿using Core.Domain.Security;
+﻿using Vulpes.Electrum.Core.Domain.Security;
 
-namespace Core.Domain.Exceptions;
+namespace Vulpes.Electrum.Core.Domain.Exceptions;
 public class AccessDeniedException : Exception
 {
     public AccessResult AccessResult { get; init; } = AccessResult.Empty;

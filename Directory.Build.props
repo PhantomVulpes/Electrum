@@ -1,0 +1,7 @@
+<Project>
+   <PropertyGroup>
+    <AssemblyName>Vulpes.Electrum.$(MSBuildProjectName)</AssemblyName>
+    <version>1.0.0</version>
+    <RootNamespace>Vulpes.Electrum.$(MSBuildProjectName)</RootNamespace>
+   </PropertyGroup>
+</Project>

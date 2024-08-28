@@ -1,6 +1,6 @@
-﻿using Core.Domain.Exceptions;
+﻿using Vulpes.Electrum.Core.Domain.Exceptions;
 
-namespace Core.Domain.Security;
+namespace Vulpes.Electrum.Core.Domain.Security;
 public record AccessResult
 {
     public static AccessResult Empty { get; } = new();

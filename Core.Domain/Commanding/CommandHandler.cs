@@ -1,6 +1,6 @@
-﻿using Core.Domain.Security;
+﻿using Vulpes.Electrum.Core.Domain.Security;
 
-namespace Core.Domain.Commanding;
+namespace Vulpes.Electrum.Core.Domain.Commanding;
 
 public abstract class CommandHandler<TCommand>
     where TCommand : Command

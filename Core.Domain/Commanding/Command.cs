@@ -1,2 +1,2 @@
-﻿namespace Core.Domain.Commanding;
+﻿namespace Vulpes.Electrum.Core.Domain.Commanding;
 public abstract record Command();
