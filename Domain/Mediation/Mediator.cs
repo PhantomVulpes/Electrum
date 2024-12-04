@@ -1,5 +1,5 @@
-﻿using Vulpes.Electrum.Core.Domain.Exceptions;
-using Vulpes.Electrum.Domain.Commanding;
+﻿using Vulpes.Electrum.Domain.Commanding;
+using Vulpes.Electrum.Domain.Exceptions;
 using Vulpes.Electrum.Domain.Querying;
 
 namespace Vulpes.Electrum.Domain.Mediation;

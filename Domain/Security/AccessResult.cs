@@ -1,4 +1,4 @@
-﻿using Vulpes.Electrum.Core.Domain.Exceptions;
+﻿using Vulpes.Electrum.Domain.Exceptions;
 
 namespace Vulpes.Electrum.Domain.Security;
 public record AccessResult

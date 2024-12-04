@@ -1,4 +1,4 @@
-﻿using Vulpes.Electrum.Core.Domain.Exceptions;
+﻿using Vulpes.Electrum.Domain.Exceptions;
 
 namespace Vulpes.Electrum.Domain.Monads;
 public class Relic<TDiscovery>
