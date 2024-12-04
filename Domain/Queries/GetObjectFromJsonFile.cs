@@ -9,7 +9,7 @@ public class GetObjectFromJsonFileHandler : QueryHandler<GetObjectFromJsonFile, 
     protected async override Task<object> InternalRequestAsync(GetObjectFromJsonFile query)
     {
         using var streamReader = new StreamReader(query.ObjectName);
-        var text = Relic<string>.Conceal(await streamReader.ReadToEndAsync()).RevealOrHoax($"Failed to retrieve data from {query.ObjectName}.");
+        var text = Perhaps<string>.ToPerhaps(await streamReader.ReadToEndAsync()).ElseThrow($"Failed to retrieve data from {query.ObjectName}.");
         var result = JsonSerializer.Deserialize(text, query.SerializeType)!;
 
         return result;
