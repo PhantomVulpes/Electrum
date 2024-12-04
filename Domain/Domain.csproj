@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Product>Electrum.Domain</Product>
+    <PackageId>Electrum.Domain</PackageId>
+    <Description>Basic stuff that I end up using in a few places</Description>
+    <Version>0.1.0</Version>
+    <Authors>Noah Buss</Authors>
+    <Company>Vulpes</Company>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="E:\repos\Electrum\Domain\.editorconfig" />
+  </ItemGroup>
+
+</Project>
