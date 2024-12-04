@@ -29,7 +29,7 @@ public static class PerhapsExtensions
         return Perhaps<TItem>.Empty;
     }
 
-    public static Perhaps<TItem> LastToPerhaps<TItem>(this IEnumerable<TItem> items)
+    public static Perhaps<TItem> LastOrPerhaps<TItem>(this IEnumerable<TItem> items)
     {
         var choice = Perhaps<TItem>.Empty;
 
@@ -41,7 +41,7 @@ public static class PerhapsExtensions
         return choice;
     }
 
-    public static Perhaps<TItem> LastToPerhaps<TItem>(this IEnumerable<TItem> items, Func<TItem, bool> predicate)
+    public static Perhaps<TItem> LastOrPerhaps<TItem>(this IEnumerable<TItem> items, Func<TItem, bool> predicate)
     {
         var choice = Perhaps<TItem>.Empty;
 

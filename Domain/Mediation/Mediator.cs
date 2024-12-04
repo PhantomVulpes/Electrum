@@ -10,8 +10,8 @@ public class Mediator : IMediator
 
     public Mediator()
     {
-        commandHandlers = new();
-        queryHandlers = new();
+        commandHandlers = [];
+        queryHandlers = [];
     }
 
     public Mediator Register<TCommand>(CommandHandler<TCommand> commandHandler)
