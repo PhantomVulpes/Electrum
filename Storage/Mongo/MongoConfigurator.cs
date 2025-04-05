@@ -1,7 +1,7 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
 using Vulpes.Electrum.Storage.Data;
-using Vulpes.Electrum.Storage.Models;
+using Vulpes.Electrum.Validation.Models;
 
 namespace Vulpes.Electrum.Storage.Mongo;
 

@@ -1,5 +1,5 @@
 using System;
-using Vulpes.Electrum.Storage.Models;
+using Vulpes.Electrum.Validation.Models;
 
 namespace Vulpes.Electrum.Storage.Data;
 

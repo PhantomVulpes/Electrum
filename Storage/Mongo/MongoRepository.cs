@@ -2,9 +2,9 @@ using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using Vulpes.Electrum.Domain.Logging;
 using Vulpes.Electrum.Storage.Data;
-using Vulpes.Electrum.Storage.Models;
 using Vulpes.Electrum.Domain.Extensions;
 using Vulpes.Electrum.Storage.Exceptions;
+using Vulpes.Electrum.Validation.Models;
 
 namespace Vulpes.Electrum.Storage.Mongo;
 public class MongoRepository<TAggregateRoot> : IModelRepository<TAggregateRoot>

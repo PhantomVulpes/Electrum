@@ -9,5 +9,5 @@ public abstract class ConsoleCommandHandler
     public abstract string SuccessMessage(ConsoleCommand consoleCommand);
     public abstract Task ExecuteAsync(ConsoleCommand consoleCommand);
 
-    public virtual ElectrumValidationResult ValidateCommand(ConsoleCommand consoleCommand) => ElectrumValidationResult.Verify();
+    public virtual string ValidateCommand(ConsoleCommand consoleCommand) => string.Empty;
 }
