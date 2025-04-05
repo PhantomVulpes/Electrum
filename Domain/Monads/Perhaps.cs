@@ -28,7 +28,7 @@ public class Perhaps<TItem>
     public Perhaps(TItem item)
     {
         this.item = item;
-        IsEmpty = item != null;
+        IsEmpty = item == null;
     }
 
     public TItem Get() => item;

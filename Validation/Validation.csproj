@@ -4,10 +4,10 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Product>Electrum.Domain</Product>
-    <PackageId>Electrum.Domain</PackageId>
-    <Description>Basic stuff that I end up using in a few places</Description>
-    <Version>1.1.0</Version>
+    <Product>Electrum.Validation</Product>
+    <PackageId>Electrum.Validation</PackageId>
+    <Description>Validation system built for saving data into a database.</Description>
+    <Version>1.0.0</Version>
     <Authors>Noah Buss</Authors>
     <Company>Vulpes</Company>
   </PropertyGroup>
@@ -16,9 +16,5 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageOutputPath>/mnt/70D2F695D2F65F32/Custom Packages/Electrum</PackageOutputPath>
   </PropertyGroup>
-
-  <ItemGroup>
-    <EditorConfigFiles Remove="E:\repos\Electrum\Domain\.editorconfig" />
-  </ItemGroup>
 
 </Project>

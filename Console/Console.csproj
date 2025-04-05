@@ -4,10 +4,10 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Product>Electrum.Domain</Product>
-    <PackageId>Electrum.Domain</PackageId>
-    <Description>Basic stuff that I end up using in a few places</Description>
-    <Version>1.1.0</Version>
+    <Product>Electrum.Console</Product>
+    <PackageId>Electrum.Console</PackageId>
+    <Description>Console objects that I use often.</Description>
+    <Version>1.0.0</Version>
     <Authors>Noah Buss</Authors>
     <Company>Vulpes</Company>
   </PropertyGroup>
@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="E:\repos\Electrum\Domain\.editorconfig" />
+    <ProjectReference Include="../Validation/Validation.csproj" />
   </ItemGroup>
 
 </Project>
