@@ -4,6 +4,17 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Product>Electrum.Console</Product>
+    <PackageId>Electrum.Console</PackageId>
+    <Description>Console objects that I use often.</Description>
+    <Version>1.0.0</Version>
+    <Authors>Noah Buss</Authors>
+    <Company>Vulpes</Company>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>/mnt/70D2F695D2F65F32/Custom Packages/Electrum</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -4,6 +4,17 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Product>Electrum.Storage</Product>
+    <PackageId>Electrum.Storage</PackageId>
+    <Description>Storage interfaces and concrete classes that I use a lot. Basically just MongoDB. Includes validation.</Description>
+    <Version>1.0.0</Version>
+    <Authors>Noah Buss</Authors>
+    <Company>Vulpes</Company>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageOutputPath>/mnt/70D2F695D2F65F32/Custom Packages/Electrum</PackageOutputPath>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,1 +1,21 @@
-{}
+{
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Release All Projects",
+        "command": "dotnet",
+        "type": "process",
+        "args": [
+          "build",
+          "--configuration",
+          "Release"
+        ],
+        "group": {
+          "kind": "build"
+        },
+        "problemMatcher": "$msCompile"
+      }
+    ]
+  }
+}
