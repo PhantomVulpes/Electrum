@@ -1,6 +1,6 @@
-﻿using Vulpes.Electrum.Domain.Security;
+﻿using Vulpes.Electrum.Validation.Models;
 
-namespace Vulpes.Electrum.Domain.ConsoleCommanding;
+namespace Vulpes.Electrum.Console.Commanding;
 public abstract class ConsoleCommandHandler
 {
     public abstract string CommandDocumentation { get; }
@@ -9,5 +9,5 @@ public abstract class ConsoleCommandHandler
     public abstract string SuccessMessage(ConsoleCommand consoleCommand);
     public abstract Task ExecuteAsync(ConsoleCommand consoleCommand);
 
-    public virtual string ValidateCommand(ConsoleCommand consoleCommand) => string.Empty;
+    public virtual IEnumerable<ElectrumValidationError> ValidateCommand(ConsoleCommand consoleCommand) => [];
 }
