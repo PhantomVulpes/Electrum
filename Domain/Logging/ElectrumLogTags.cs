@@ -14,6 +14,7 @@ public static partial class ElectrumLogTags
     public static string EntityDeleted => $"[{Storage}.{nameof(EntityDeleted)}]";
     public static string EntityInserted => $"[{Storage}.{nameof(EntityInserted)}]";
     public static string EntityUpdated => $"[{Storage}.{nameof(EntityUpdated)}]";
+    public static string DuplicateStorageInsert => $"[{Storage}.{nameof(DuplicateStorageInsert)}]";
 
     private static string Prefix => $"{nameof(Electrum)}";
 

@@ -2,7 +2,8 @@ using Vulpes.Electrum.Validation.Models;
 
 namespace Vulpes.Electrum.Validation.Interfaces;
 
-public interface IInsertable
+public interface IInsertable<TAggregateRoot>
+    where TAggregateRoot : AggregateRoot
 {
-    ValidateModel<InsertModel> PrepareForInsert();
+    ValidateModel<InsertModel<TAggregateRoot>> PrepareForInsert();
 }

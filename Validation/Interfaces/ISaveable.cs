@@ -2,7 +2,8 @@ using Vulpes.Electrum.Validation.Models;
 
 namespace Vulpes.Electrum.Validation.Interfaces;
 
-public interface ISaveable
+public interface ISaveable<TAggregateRoot>
+    where TAggregateRoot : AggregateRoot
 {
-    ValidateModel<SaveModel> PrepareForSave();
+    ValidateModel<SaveModel<TAggregateRoot>> PrepareForSave();
 }
