@@ -1,7 +1,7 @@
+using Vulpes.Electrum.Domain.Data;
 using Vulpes.Electrum.Domain.Extensions;
-using Vulpes.Electrum.Storage.Data;
 
-namespace Vulpes.Electrum.Storage.Mongo;
+namespace Vulpes.Electrum.Domain.Mongo;
 
 public class MongoQueryProvider<TResponse> : IQueryProvider<TResponse>
 {

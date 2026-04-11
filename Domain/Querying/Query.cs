@@ -1,3 +1,3 @@
 ﻿namespace Vulpes.Electrum.Domain.Querying;
 
-public abstract record Query;
+public abstract record Query<TResponse>;

@@ -1,6 +1,7 @@
-﻿using Vulpes.Electrum.Validation.Models;
+﻿using Vulpes.Electrum.Domain.Validation;
 
 namespace Vulpes.Electrum.Console.Commanding;
+
 public abstract class ConsoleCommandHandler
 {
     public abstract string CommandDocumentation { get; }

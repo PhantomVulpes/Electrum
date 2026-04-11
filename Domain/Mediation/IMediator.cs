@@ -2,10 +2,10 @@
 using Vulpes.Electrum.Domain.Querying;
 
 namespace Vulpes.Electrum.Domain.Mediation;
+
 public interface IMediator
 {
-    Task<TResponse> RequestResponseAsync<TQuery, TResponse>(TQuery query)
-        where TQuery : Query;
+    Task<TResponse> RequestResponseAsync<TResponse>(Query<TResponse> query);
 
     Task ExecuteCommandAsync<TCommand>(TCommand command)
         where TCommand : Command;

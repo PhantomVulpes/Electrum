@@ -1,5 +1,4 @@
-
-namespace Vulpes.Electrum.Storage.Exceptions;
+namespace Vulpes.Electrum.Domain.Exceptions;
 
 public class ModificationException : Exception
 {

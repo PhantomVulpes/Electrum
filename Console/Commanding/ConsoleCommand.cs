@@ -1,4 +1,5 @@
 ﻿namespace Vulpes.Electrum.Console.Commanding;
+
 public record ConsoleCommand
 {
     private const string ArgumentPrefix = "-";

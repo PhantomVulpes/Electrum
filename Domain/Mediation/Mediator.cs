@@ -3,6 +3,7 @@ using Vulpes.Electrum.Domain.Exceptions;
 using Vulpes.Electrum.Domain.Querying;
 
 namespace Vulpes.Electrum.Domain.Mediation;
+
 public class Mediator : IMediator
 {
     private readonly Dictionary<string /*command type*/, object /*handler*/> commandHandlers;
@@ -22,17 +23,24 @@ public class Mediator : IMediator
     }
 
     public Mediator Register<TQuery, TResponse>(QueryHandler<TQuery, TResponse> queryHandler)
-        where TQuery : Query
+        where TQuery : Query<TResponse>
     {
         queryHandlers.Add(typeof(TQuery).Name, queryHandler);
         return this;
     }
 
-    public async Task<TResponse> RequestResponseAsync<TQuery, TResponse>(TQuery query)
-        where TQuery : Query
+    public async Task<TResponse> RequestResponseAsync<TResponse>(Query<TResponse> query)
     {
-        var handler = ExtractQueryHandler<TQuery, TResponse>();
-        return await handler.RequestAsync(query);
+        var concreteQueryType = query.GetType();
+
+        if (!queryHandlers.TryGetValue(concreteQueryType.Name, out var handler))
+            throw new MediationHandlerNotFoundException(concreteQueryType);
+
+        var requestMethod = handler.GetType().GetMethod("RequestAsync")
+            ?? throw new MediationHandlerNotFoundException(concreteQueryType);
+
+        var task = (Task<TResponse>)requestMethod.Invoke(handler, new[] { query })!;
+        return await task;
     }
 
     public async Task<bool> EvaluateAccessAsync<TCommand>(TCommand command)
@@ -63,7 +71,7 @@ public class Mediator : IMediator
     }
 
     private QueryHandler<TQuery, TResponse> ExtractQueryHandler<TQuery, TResponse>()
-        where TQuery : Query
+        where TQuery : Query<TResponse>
     {
         try
         {
