@@ -1,9 +1,11 @@
 ﻿using System.Text.Json;
 using Vulpes.Electrum.Domain.Monads;
 using Vulpes.Electrum.Domain.Querying;
+using Vulpes.Electrum.Domain.Security;
 
 namespace Vulpes.Electrum.Domain.Queries;
-public record GetObjectFromJsonFile(Type SerializeType, string ObjectName) : Query;
+
+public record GetObjectFromJsonFile(Type SerializeType, string ObjectName) : Query<object>;
 public class GetObjectFromJsonFileHandler : QueryHandler<GetObjectFromJsonFile, object>
 {
     protected async override Task<object> InternalRequestAsync(GetObjectFromJsonFile query)
@@ -13,5 +15,10 @@ public class GetObjectFromJsonFileHandler : QueryHandler<GetObjectFromJsonFile, 
         var result = JsonSerializer.Deserialize(text, query.SerializeType)!;
 
         return result;
+    }
+
+    protected override Task<AccessResult> InternalValidateAccessAsync(GetObjectFromJsonFile query)
+    {
+        return Task.FromResult(AccessResult.Success());
     }
 }
