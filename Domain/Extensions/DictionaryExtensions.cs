@@ -1,4 +1,5 @@
 ﻿namespace Vulpes.Electrum.Domain.Extensions;
+
 public static class DictionaryExtensions
 {
     public static Dictionary<TKey, TValue> AddAndReturn<TKey, TValue>(this Dictionary<TKey, TValue> baseDictionary, KeyValuePair<TKey, TValue> pair)
@@ -24,4 +25,9 @@ public static class DictionaryExtensions
             baseDictionary.Add(pair.Item1, pair.Item2);
         }
     }
+
+    public static Dictionary<TKey, TValue> CloneDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> dictionaryEnumerable)
+        where TKey : notnull
+        where TValue : notnull
+        => dictionaryEnumerable.ToDictionary(f => f.Key, f => f.Value);
 }

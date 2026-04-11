@@ -1,24 +1,25 @@
-using Vulpes.Electrum.Domain.Models;
+using Vulpes.Electrum.Domain.Exceptions;
+using Vulpes.Electrum.Domain.Validation;
 
 namespace Vulpes.Electrum.Domain.Extensions;
 
 public static class ValidationExtensions
 {
-    public static IEnumerable<ElectrumValidationError> Validate(this IEnumerable<ElectrumValidationError> validationResults, Func<bool> checkIsValid, string invalidFieldName, string errorMessage)
+    public static bool IsValid(this ValidationBuilder builder) => builder.Errors.Count == 0;
+
+    public static ValidationBuilder ThrowIfInvalid(this ValidationBuilder builder)
     {
-        // If the check passes, we can return the existing validation results. Nothing new to add.
-        if (checkIsValid())
+        if (!builder.IsValid())
         {
-            return validationResults;
+            throw new ElectrumValidationException(builder.Errors);
         }
 
-        // If the check fails, add a new validation error
-        var error = new ElectrumValidationError
-        {
-            InvalidFieldName = invalidFieldName,
-            ErrorMessage = errorMessage
-        };
+        return builder;
+    }
 
-        return validationResults.Append(error);
+    public static TSubject ThrowIfInvalid<TSubject>(this IValidationModel<TSubject> validationModel)
+    {
+        validationModel.ThrowIfInvalid();
+        return validationModel.Value;
     }
 }

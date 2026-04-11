@@ -5,6 +5,7 @@ using Vulpes.Electrum.Domain.Extensions;
 using Vulpes.Electrum.Domain.Data;
 using Vulpes.Electrum.Domain.Exceptions;
 using Vulpes.Electrum.Domain.Models;
+using Vulpes.Electrum.Domain.Validation;
 
 namespace Vulpes.Electrum.Domain.Mongo;
 
@@ -43,11 +44,10 @@ public class MongoRepository<TAggregateRoot> : IModelRepository<TAggregateRoot>
         return result.ElseThrow($"Could not find object {typeof(TAggregateRoot).Name} with key {key}.").FromResult();
     }
 
-    public async Task InsertAsync(ValidateModel<InsertModel<TAggregateRoot>> validatedInsertModel)
+    public async Task InsertAsync(InsertModel<TAggregateRoot> insertRecord)
     {
+        var model = insertRecord.ThrowIfInvalid();
         var entityName = typeof(TAggregateRoot).Name;
-
-        var model = validatedInsertModel.DataModel.Entity;
 
         // TODO: Try catch around this.
         try
@@ -74,21 +74,21 @@ public class MongoRepository<TAggregateRoot> : IModelRepository<TAggregateRoot>
         }
     }
 
-    public async Task SaveAsync(string editingToken, ValidateModel<SaveModel<TAggregateRoot>> validatedSaveModel)
+    public async Task SaveAsync(SaveModel<TAggregateRoot> saveRecord)
     {
+        var model = saveRecord.ThrowIfInvalid();
         var entityName = typeof(TAggregateRoot).Name;
-        var model = validatedSaveModel.DataModel.Entity;
 
-        var oldEditingToken = model.EditingToken;
+        var newEditingToken = model.EditingToken;
 
         try
         {
-            if (string.IsNullOrEmpty(oldEditingToken))
+            if (string.IsNullOrEmpty(newEditingToken))
             {
                 throw new ModificationException($"Empty editing token. {entityName} {model.ToLogName()} did not have an editing token.", new() { ["entityType"] = entityName });
             }
 
-            if (editingToken == oldEditingToken)
+            if (saveRecord.PreviousEditingToken == newEditingToken)
             {
                 throw new ModificationException($"Stale editing token. {entityName} {model.ToLogName()} did not have its editing token updated with its changes.", new()
                 {
@@ -99,7 +99,7 @@ public class MongoRepository<TAggregateRoot> : IModelRepository<TAggregateRoot>
 
             var saveResult = await mongoProvider
                 .GetCollection<TAggregateRoot>(CqrsType.Command)
-                .ReplaceOneAsync(value => value.Key == model.Key && value.EditingToken == oldEditingToken, model)
+                .ReplaceOneAsync(value => value.Key == model.Key && value.EditingToken == newEditingToken, model)
                 ;
 
             if (saveResult.ModifiedCount <= 0)
