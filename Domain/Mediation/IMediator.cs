@@ -5,8 +5,7 @@ namespace Vulpes.Electrum.Domain.Mediation;
 
 public interface IMediator
 {
-    Task<TResponse> RequestResponseAsync<TQuery, TResponse>(TQuery query)
-        where TQuery : Query<TResponse>;
+    Task<TResponse> RequestResponseAsync<TResponse>(Query<TResponse> query);
 
     Task ExecuteCommandAsync<TCommand>(TCommand command)
         where TCommand : Command;
