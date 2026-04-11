@@ -1,6 +1,6 @@
-using Vulpes.Electrum.Validation.Models;
+using Vulpes.Electrum.Domain.Models;
 
-namespace Vulpes.Electrum.Validation.Extensions;
+namespace Vulpes.Electrum.Domain.Extensions;
 
 public static class ValidationExtensions
 {

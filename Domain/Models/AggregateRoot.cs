@@ -1,4 +1,4 @@
-namespace Vulpes.Electrum.Validation.Models;
+namespace Vulpes.Electrum.Domain.Models;
 
 public abstract record AggregateRoot
 {

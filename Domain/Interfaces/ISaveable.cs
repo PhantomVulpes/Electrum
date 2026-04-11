@@ -1,6 +1,6 @@
-using Vulpes.Electrum.Validation.Models;
+using Vulpes.Electrum.Domain.Models;
 
-namespace Vulpes.Electrum.Validation.Interfaces;
+namespace Vulpes.Electrum.Domain.Interfaces;
 
 public interface ISaveable<TAggregateRoot>
     where TAggregateRoot : AggregateRoot

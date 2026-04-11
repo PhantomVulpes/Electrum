@@ -1,6 +1,6 @@
-using Vulpes.Electrum.Validation.Models;
+using Vulpes.Electrum.Domain.Models;
 
-namespace Vulpes.Electrum.Storage.Data;
+namespace Vulpes.Electrum.Domain.Data;
 
 public interface IModelRepository<TAggregateRoot>
     where TAggregateRoot : AggregateRoot

@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
 using System.Reflection;
 
-namespace Vulpes.Electrum.Storage.Data;
+namespace Vulpes.Electrum.Domain.Data;
 
 internal class ConfigureToStringConvention : ConventionBase, IMemberMapConvention
 {

@@ -1,4 +1,4 @@
-namespace Vulpes.Electrum.Storage.Data;
+namespace Vulpes.Electrum.Domain.Data;
 
 public interface IQueryProvider<TResponse>
 {

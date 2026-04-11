@@ -1,6 +1,6 @@
-using Vulpes.Electrum.Validation.Models;
+using Vulpes.Electrum.Domain.Models;
 
-namespace Vulpes.Electrum.Storage.Exceptions;
+namespace Vulpes.Electrum.Domain.Exceptions;
 
 public class ElectrumValidationException : Exception
 {

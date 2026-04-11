@@ -1,12 +1,13 @@
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using Vulpes.Electrum.Domain.Logging;
-using Vulpes.Electrum.Storage.Data;
 using Vulpes.Electrum.Domain.Extensions;
-using Vulpes.Electrum.Storage.Exceptions;
-using Vulpes.Electrum.Validation.Models;
+using Vulpes.Electrum.Domain.Data;
+using Vulpes.Electrum.Domain.Exceptions;
+using Vulpes.Electrum.Domain.Models;
 
-namespace Vulpes.Electrum.Storage.Mongo;
+namespace Vulpes.Electrum.Domain.Mongo;
+
 public class MongoRepository<TAggregateRoot> : IModelRepository<TAggregateRoot>
     where TAggregateRoot : AggregateRoot
 {

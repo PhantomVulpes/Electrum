@@ -1,4 +1,4 @@
-﻿using Vulpes.Electrum.Validation.Models;
+﻿using Vulpes.Electrum.Domain.Models;
 
 namespace Vulpes.Electrum.Console.Commanding;
 

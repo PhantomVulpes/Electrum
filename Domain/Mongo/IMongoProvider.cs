@@ -1,8 +1,8 @@
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using Vulpes.Electrum.Storage.Data;
+using Vulpes.Electrum.Domain.Data;
 
-namespace Vulpes.Electrum.Storage.Mongo;
+namespace Vulpes.Electrum.Domain.Mongo;
 
 public interface IMongoProvider
 {

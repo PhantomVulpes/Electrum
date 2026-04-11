@@ -1,7 +1,7 @@
 using MongoDB.Driver;
-using Vulpes.Electrum.Storage.Data;
+using Vulpes.Electrum.Domain.Data;
 
-namespace Vulpes.Electrum.Storage.Mongo;
+namespace Vulpes.Electrum.Domain.Mongo;
 
 public abstract class MongoIndexDefinition<TModel> : IIndexDefinition
 {

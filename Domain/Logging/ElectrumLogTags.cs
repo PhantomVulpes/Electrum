@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-
 namespace Vulpes.Electrum.Domain.Logging;
 
 public static partial class ElectrumLogTags

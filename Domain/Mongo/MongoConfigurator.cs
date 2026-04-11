@@ -1,9 +1,9 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
-using Vulpes.Electrum.Storage.Data;
-using Vulpes.Electrum.Validation.Models;
+using Vulpes.Electrum.Domain.Data;
+using Vulpes.Electrum.Domain.Models;
 
-namespace Vulpes.Electrum.Storage.Mongo;
+namespace Vulpes.Electrum.Domain.Mongo;
 
 public static class MongoConfigurator
 {
