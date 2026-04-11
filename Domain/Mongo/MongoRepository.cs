@@ -99,7 +99,7 @@ public class MongoRepository<TAggregateRoot> : IModelRepository<TAggregateRoot>
 
             var saveResult = await mongoProvider
                 .GetCollection<TAggregateRoot>(CqrsType.Command)
-                .ReplaceOneAsync(value => value.Key == model.Key && value.EditingToken == newEditingToken, model)
+                .ReplaceOneAsync(value => value.Key == model.Key && value.EditingToken == saveRecord.PreviousEditingToken, model)
                 ;
 
             if (saveResult.ModifiedCount <= 0)

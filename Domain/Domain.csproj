@@ -7,7 +7,7 @@
     <Product>Electrum.Domain</Product>
     <PackageId>Electrum.Domain</PackageId>
     <Description>Basic stuff that I end up using in a few places</Description>
-    <Version>1.2.1</Version>
+    <Version>1.3.1</Version>
     <Authors>Noah Buss</Authors>
     <Company>Vulpes</Company>
   </PropertyGroup>
